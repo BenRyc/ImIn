@@ -2,8 +2,10 @@
 <head>
     <title>Homepage</title>
 <p>the things </p>
-<link rel='stylesheet' type='text/css' href='common.css' />";
-</head>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+
 <h1>{{ tree }}</h1>
 
 <body>
