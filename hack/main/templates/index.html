@@ -71,7 +71,7 @@
 
               {% for da in data %}
               <tr>
-                <td>{{ da.FileName }}</td>
+                <td><a href="{% url 'main:other' da.id %}">{{ da.FileName }}</a></td>
                 <td>{{ da.FilePath }}</td>
                 <td>{{ da.LoadNumber }}</td>
                 <td>{{ da.Equipment }}</td>

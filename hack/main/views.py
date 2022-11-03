@@ -8,6 +8,9 @@ from datetime import datetime
 def index(request):
     return render(request, 'index.html', {'data': RunDetails.objects.all()})
 
+def other(request, thing):
+    rund = RunDetails.objects.get(pk=int(thing))
+    return render(request, 'other.html', {'data': rund.parts.all(), 'rund':rund} )
 
 
 def importJSON(request):
