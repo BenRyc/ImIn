@@ -1,22 +1,6 @@
 from django.db import models
 
 # Create your models here.
-class RunDetails(models.Model):
-    FileName = models.CharField(max_length=200)
-    FilePath = models.CharField(max_length=200)
-    LoadNumber = models.IntegerField()
-    Equipment = models.CharField(max_length=200)
-    RunRecipe = models.CharField(max_length=200)
-    RunStart = models.DateTimeField()
-    RunEnd = models.DateTimeField()
-    RunDuration = models.FloatField()
-    FileLength = models.IntegerField()
-    OperatorName = models.CharField(max_length=200)
-    ExportControl = models.CharField(max_length=200)
-
-
-    def __str__(self):
-        return self.FileName
 
 
 class PartInformation(models.Model):
@@ -32,3 +16,23 @@ class PartInformation(models.Model):
 
     def __str__(self):
         return self.PartNumber
+
+
+
+class RunDetails(models.Model):
+    FileName = models.CharField(max_length=200)
+    FilePath = models.CharField(max_length=200)
+    LoadNumber = models.IntegerField()
+    Equipment = models.CharField(max_length=200)
+    RunRecipe = models.CharField(max_length=200)
+    RunStart = models.DateTimeField()
+    RunEnd = models.DateTimeField()
+    RunDuration = models.FloatField()
+    FileLength = models.IntegerField()
+    OperatorName = models.CharField(max_length=200)
+    ExportControl = models.CharField(max_length=200)
+
+    parts = models.ManyToManyField(PartInformation)
+
+    def __str__(self):
+        return self.FileName
