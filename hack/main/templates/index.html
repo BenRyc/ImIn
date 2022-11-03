@@ -2,7 +2,7 @@
 <head>
     <style>
     body {
-        background-image: url(https://cdn.pastemagazine.com/www/articles/2020/07/02/airplane-big.jpg) 
+        background-image: url(https://cdn.pastemagazine.com/www/articles/2020/07/02/airplane-big.jpg)
     }
     body {
     background-position: center;
@@ -15,6 +15,13 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
 
 
 <body>
@@ -29,42 +36,56 @@
         </h1>
     </div>
 
-<div class='instructions'>
-<div class='row'> <p><u></u></p>
-</div></div>
+
+    <div class="my">
+        <table class="table table-striped table-bordered" id="sortTable">
+            <thead>
+                <tr id="center">
+                    <th>FileName</th>
+                    <th>FilePath</th>
+                    <th>LoadNumber</th>
+                    <th>Equipment</th>
+                    <th>RunRecipe</th>
+                    <th>RunStart <br> <input class="browse-rowwidth" type="text" id="min4" name="min4"
+                            placeholder="min"> <br> <input class="browse-rowwidth" type="text" id="max4"
+                            name="max4" placeholder="max"></th>
+                    <th>RunEnd <br> <input class="browse-rowwidth" type="text" id="min5" name="min5"
+                            placeholder="min"> <br> <input class="browse-rowwidth" type="text" id="max5"
+                            name="max5" placeholder="max"></th>
+                    <th>RunDuration <br> <input class="browse-rowwidth" type="text" id="min6" name="min6"
+                            placeholder="min"> <br> <input class="browse-rowwidth" type="text" id="max6"
+                            name="max6" placeholder="max"></th>
+                    <th>FileLength <br> <input class="browse-rowwidth" type="text" id="min7" name="min7"
+                            placeholder="min"> <br> <input class="browse-rowwidth" type="text" id="max7"
+                            name="max7" placeholder="max"></th>
+                    <th>OperatorName</th>
+                    <th>ExportControl</th>
+                </tr>
+            </thead>
+            <tbody>
 
 
-    <div class= 'filters'>
-    <p style='margin-top:5px;'><b>Apply filters:</b></p>
-    <div class='SearchingLGAs'>
+              {% for da in data %}
+              <tr>
+                <td>{{ da.FileName }}</td>
+                <td>{{ da.FilePath }}</td>
+                <td>{{ da.LoadNumber }}</td>
+                <td>{{ da.Equipment }}</td>
+                <td>{{ da.RunRecipe }}</td>
+                <td>{{ da.RunStart }}</td>
+                <td>{{ da.RunEnd }}</td>
+                <td>{{ da.RunDuration }}</td>
+                <td>{{ da.FileLength }}</td>
+                <td>{{ da.OperatorName }}</td>
+                <td>{{ da.ExportControl }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+      </table>
 
-<form action="{% url 'main:index' %}" method = "post">
-    {% csrf_token %}
+      <script>
+      $('#sortTable').DataTable();
+      </script>
 
-
-    </datalist>
     </div>
-    <div class = 'radioFilters'>
-    <div class='Gender'>
-    <p>Gender:</p>
-        <input type = 'radio' id='Male' name='gender' value='males'>
-
-    <label for='Male'> Male</label><br>
-    <input type = 'radio' id='Female' name='gender' value='females'
-    ><label for='Female'> Female</label><br>
-    </div>
-    <input type="date" data-date-inline-picker="true" name = 'pdate' />
-    <input type="text" name="text" >
-    </div>
-        
-        <div class='Applybutton'>
-        <input type='submit' value = 'create'></input>
-        </div>
-        </div>
-        </div>
-        </div>
-    </form>
-    </div>
-    {{tree}}
-    {{branch}}
-    {{branch2}}
+</body>
