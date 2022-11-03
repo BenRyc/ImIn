@@ -4,7 +4,7 @@ from django.db import models
 
 
 class PartInformation(models.Model):
-    WorkOrder = models.IntegerField()
+    WorkOrder = models.CharField(max_length=200)
     PartNumber = models.CharField(max_length=200)
     PartDescription = models.CharField(max_length=200)
     ToolLocation = models.CharField(max_length=200)
@@ -22,7 +22,7 @@ class PartInformation(models.Model):
 class RunDetails(models.Model):
     FileName = models.CharField(max_length=200)
     FilePath = models.CharField(max_length=200)
-    LoadNumber = models.IntegerField()
+    LoadNumber = models.CharField(max_length=200)
     Equipment = models.CharField(max_length=200)
     RunRecipe = models.CharField(max_length=200)
     RunStart = models.DateTimeField()

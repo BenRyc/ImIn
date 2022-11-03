@@ -1,0 +1,39 @@
+
+<head>
+    <style>
+    body {
+        background-image: url(https://cdn.pastemagazine.com/www/articles/2020/07/02/airplane-big.jpg)
+    }
+    body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    }
+    </style>
+    <title>Homepage</title>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+
+
+<body>
+    <div class='header'>
+        <h3>
+        <a href='/'><img id="rmit-logo" src="{% static 'logo.png' %}" class='top-image' alt='RMIT logo' height='45'></a>
+            <!-- <div style = "float: right"><input type="text" placeholder="Search.."></div> -->
+
+        </h3>
+        <h1>
+        Not home
+        </h1>
+    </div>
+
+
+<form action="{% url 'main:importJSON' %}" method = "post">
+    {% csrf_token %}
+
+    <input type="text" name="data" >
+
+    <input type='submit' value = 'create'></input>
+</form>
