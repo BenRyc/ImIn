@@ -1,0 +1,91 @@
+
+<head>
+    <style>
+    body {
+        background-image: url(https://cdn.pastemagazine.com/www/articles/2020/07/02/airplane-big.jpg)
+    }
+    body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    }
+    </style>
+    <title>Homepage</title>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+
+<body>
+    <div class='header'>
+        <h3>
+        <a href='/'><img id="rmit-logo" src="{% static 'logo.png' %}" class='top-image' alt='RMIT logo' height='45'></a>
+            <!-- <div style = "float: right"><input type="text" placeholder="Search.."></div> -->
+
+        </h3>
+        <h1>
+        Homepage
+        </h1>
+    </div>
+
+    <p>FileName:{{ rund.FileName }}</p>
+    <p>FilePath:{{ rund.FilePath }}</p>
+    <p>LoadNumber:{{ rund.LoadNumber }}</p>
+    <p>Equipment:{{ rund.Equipment }}</p>
+    <p>RunRecipe:{{ rund.RunRecipe }}</p>
+    <p>RunStart:{{ rund.RunStart }}</p>
+    <p>RunEnd:{{ rund.RunEnd }}</p>
+    <p>RunDuration:{{ rund.RunDuration }}</p>
+    <p>FileLength:{{ rund.FileLength }}</p>
+    <p>OperatorName:{{ rund.OperatorName }}</p>
+    <p>ExportControl:{{ rund.ExportControl }}</p>
+
+
+    <div class="my">
+        <table class="table table-striped table-bordered" id="sortTable">
+            <thead>
+                <tr id="center">
+                    <th>WorkOrder</th>
+                    <th>PartNumber</th>
+                    <th>PartDescription</th>
+                    <th>ToolLocation</th>
+                    <th>Comment1</th>
+                    <th>Comment2</th>
+                    <th>Comment3</th>
+                    <th>PartTCs</th>
+                    <th>PartProbes</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+              {% for da in data %}
+              <tr>
+                <td>{{ da.WorkOrder }}</td>
+                <td>{{ da.PartNumber }}</td>
+                <td>{{ da.PartDescription }}</td>
+                <td>{{ da.ToolLocation }}</td>
+                <td>{{ da.Comment1 }}</td>
+                <td>{{ da.Comment2 }}</td>
+                <td>{{ da.Comment3 }}</td>
+                <td>{{ da.PartTCs }}</td>
+                <td>{{ da.PartProbes }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+      </table>
+
+      <script>
+      $('#sortTable').DataTable();
+      </script>
+
+    </div>
+</body>
