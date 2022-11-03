@@ -31,7 +31,7 @@
 <body>
     <div class='header'>
         <h3>
-        <a href='/'><img id="rmit-logo" src="{% static 'logo.png' %}" class='top-image' alt='RMIT logo' height='45'></a>
+        <a href='/'><img id="boeing-logo" src="{% static 'boeing.png' %}" class='top-image' alt='BOEING logo' height='45'></a>
             <!-- <div style = "float: right"><input type="text" placeholder="Search.."></div> -->
 
         </h3>
@@ -71,7 +71,7 @@
 
               {% for da in data %}
               <tr>
-                <td><a href="{% url 'main:other' da.id %}">{{ da.FileName }}</a></td>
+                <td>{{ da.FileName }}</td>
                 <td>{{ da.FilePath }}</td>
                 <td>{{ da.LoadNumber }}</td>
                 <td>{{ da.Equipment }}</td>
