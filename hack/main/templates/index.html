@@ -2,7 +2,7 @@
 <head>
     <!--
     <style>
-    
+
     body {
         background-image: url(https://cdn.pastemagazine.com/www/articles/2020/07/02/airplane-big.jpg)
     }
@@ -11,7 +11,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     }
-    
+
     </style>
     -->
     <title>Homepage</title>
@@ -71,7 +71,7 @@
 
               {% for da in data %}
               <tr>
-                <td>{{ da.FileName }}</td>
+                <td><a href="{% url 'main:other' da.id %}">{{ da.FileName }}</a></td>
                 <td>{{ da.FilePath }}</td>
                 <td>{{ da.LoadNumber }}</td>
                 <td>{{ da.Equipment }}</td>
