@@ -1,4 +1,10 @@
 p {
   font-family: verdana;
-  font-size: 200px;
+  font-size: 20px;
+}
+#rmit-logo {
+  padding-right: 50px;
+}
+.header h1 {
+  font-size: 50px;
 }

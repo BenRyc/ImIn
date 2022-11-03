@@ -1,6 +1,60 @@
-<p>the things </p>
+
+<head>
+    <title>Homepage</title>
+
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 
 
-<h1>{{ tree }}</h1>
+
+<body>
+    <div class='header'>
+        <h3>
+        <a href='/'><img id="rmit-logo" src="{% static 'logo.png' %}" class='top-image' alt='RMIT logo' height='45'></a>
+            <!-- <div style = "float: right"><input type="text" placeholder="Search.."></div> -->
+
+        </h3>
+        <h1>
+        Homepage
+        </h1>
+    </div>
+
+<div class='instructions'>
+<div class='row'> <p><u>Choose or search an Australian LGA from the drop down menu below to view it's statistics on homelessness. Apply filters for specific information of your chosen LGA.</u></p>
+</div></div>
+
+
+    <div class= 'filters'>
+    <p style='margin-top:5px;'><b>Apply filters:</b></p>
+    <div class='SearchingLGAs'>
+
+<form action="{% url 'main:index' %}" method = "post">
+    {% csrf_token %}
+
+
+    </datalist>
+    </div>
+    <div class = 'radioFilters'>
+    <div class='Gender'>
+    <p>Gender:</p>
+        <input type = 'radio' id='Male' name='gender' value='males'>
+
+    <label for='Male'> Male</label><br>
+    <input type = 'radio' id='Female' name='gender' value='females'
+    ><label for='Female'> Female</label><br>
+    </div>
+    <input type="date" data-date-inline-picker="true" name = 'pdate' />
+    <input type="text" name="text" >
+    </div>
+        
+        <div class='Applybutton'>
+        <input type='submit' value = 'create'></input>
+        </div>
+        </div>
+        </div>
+        </div>
+    </form>
+    </div>
+    {{tree}}
+    {{branch}}
+    {{branch2}}
